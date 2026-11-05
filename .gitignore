@@ -1,0 +1,13 @@
+target/
+build/
+dist/
+node_modules/
+__pycache__/
+*.class
+*.jar
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.o
+*.a
