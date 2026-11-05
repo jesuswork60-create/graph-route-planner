@@ -1,0 +1,37 @@
+{
+  "coordinates": "plane",
+  "nodes": [
+    {"id": "station", "x": 0, "y": 0},
+    {"id": "market", "x": 400, "y": 0},
+    {"id": "bridge", "x": 800, "y": 0},
+    {"id": "school", "x": 0, "y": 300},
+    {"id": "library", "x": 400, "y": 300},
+    {"id": "park", "x": 800, "y": 300},
+    {"id": "harbour", "x": 1200, "y": 0},
+    {"id": "hill", "x": 400, "y": 700}
+  ],
+  "edges": [
+    {"id": "mill-1", "from": "station", "to": "market", "speed": 8, "name": "Mill Road", "two_way": true},
+    {"id": "mill-2", "from": "market", "to": "bridge", "speed": 8, "name": "Mill Road", "two_way": true},
+    {"id": "quay", "from": "bridge", "to": "harbour", "speed": 8, "name": "Quay Street", "tags": ["cobbled"], "two_way": true},
+    {"id": "school-lane", "from": "station", "to": "school", "speed": 6, "name": "School Lane", "two_way": true},
+    {"id": "elm-1", "from": "school", "to": "library", "speed": 6, "name": "Elm Avenue", "two_way": true},
+    {"id": "elm-2", "from": "library", "to": "park", "speed": 6, "name": "Elm Avenue", "two_way": true},
+    {"id": "cross", "from": "market", "to": "library", "speed": 4, "name": "Cross Street", "two_way": true},
+    {"id": "park-way", "from": "park", "to": "bridge", "speed": 6, "name": "Park Way"},
+    {"id": "ring", "from": "park", "to": "harbour", "length": 600, "speed": 20, "name": "Ring Road", "tags": ["highway"], "two_way": true},
+    {"id": "hill-road", "from": "library", "to": "hill", "length": 450, "speed": 5, "name": "Hill Road", "tags": ["steep"], "two_way": true}
+  ],
+  "turn_restrictions": [
+    {"type": "no", "from": "mill-1", "to": "cross"}
+  ],
+  "profiles": {
+    "cycling": {
+      "distance_weight": 1,
+      "tag_multipliers": {"cobbled": 1.5, "steep": 2},
+      "avoid": ["highway"],
+      "u_turns": "dead_end_only",
+      "u_turn_penalty": 30
+    }
+  }
+}
